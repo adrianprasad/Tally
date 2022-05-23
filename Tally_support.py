@@ -13,6 +13,7 @@ def main(*args):
     global _top1, _w1
     _top1 = root
     _w1 = Tally.Toplevel1(_top1)
+ 
     root.mainloop()
 
 if __name__ == '__main__':
