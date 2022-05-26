@@ -1,20 +1,8 @@
-import tkinter as tk
-import tkinter.ttk as ttk
-from tkinter.constants import *
-
-import Tally
-
-def main(*args):
-    '''Main entry point for the application.'''
-    global root
-    root = tk.Tk()
-    root.protocol( 'WM_DELETE_WINDOW' , root.destroy)
-    # Creates a toplevel widget.
-    global _top1, _w1
-    _top1 = root
-    _w1 = Tally.Toplevel1(_top1)
- 
-    root.mainloop()
-
-if __name__ == '__main__':
-    Tally.start_up()
+import mysql.connector
+mydb = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password=''
+    )
+mycursor=mydb.cursor()
+mycursor.execute('CREATE DATABASE testdb')

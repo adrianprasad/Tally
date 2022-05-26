@@ -5,6 +5,13 @@ import tkinter.ttk as ttk
 from tkinter.constants import *
 import Tally_support
 
+def back():
+        #payment.destroy()
+        Frame.destroy()
+        Toplevel1()
+        
+
+
 def payment():
             Frame1 = tk.Frame( )
             Frame1.place(relx=0.865, rely=0.089, relheight=0.915, relwidth=0.132)
@@ -27,6 +34,20 @@ def payment():
             Button9.configure(highlightcolor="black")
             Button9.configure(pady="0")
             Button9.configure(text='''F3 : Date''')
+            
+            Button39 = tk.Button( Frame1)
+            Button39.place(relx=0.0, rely=0.011, height=24, width=257)
+            Button39.configure(activebackground="beige")
+            Button39.configure(activeforeground="#000000")
+            Button39.configure(background="#ffffff")
+            Button39.configure(compound='left')
+            Button39.configure(disabledforeground="#a3a3a3")
+            Button39.configure(foreground="#000000")
+            Button39.configure(highlightbackground="#d9d9d9")
+            Button39.configure(highlightcolor="black")
+            Button39.configure(pady="0")
+            Button39.configure(text='''Back''')
+            
 
             but50 = tk.Button( )
             but50.place(relx=0.099, rely=0.03, height=34, width=117)
@@ -174,19 +195,19 @@ def payment():
             Frame5.configure(highlightbackground="#d9d9d9")
             Frame5.configure(highlightcolor="#0f8bce")
 
-            Button19 = tk.Button( Frame5)
-            Button19.place(relx=0.018, rely=0.286, height=14, width=107)
-            Button19.configure(activebackground="beige")
-            Button19.configure(activeforeground="#000000")
-            Button19.configure(background="#41b4f1")
-            Button19.configure(borderwidth="0")
-            Button19.configure(compound='left')
-            Button19.configure(disabledforeground="#a3a3a3")
-            Button19.configure(foreground="#000000")
-            Button19.configure(highlightbackground="#d9d9d9")
-            Button19.configure(highlightcolor="black")
-            Button19.configure(pady="0")
-            Button19.configure(text='''Payment Register''')
+            Label40 = tk.Label( Frame5)
+            Label40.place(relx=0.018, rely=0.286, height=14, width=107)
+            Label40.configure(activebackground="beige")
+            Label40.configure(activeforeground="#000000")
+            Label40.configure(background="#41b4f1")
+            Label40.configure(borderwidth="0")
+            Label40.configure(compound='left')
+            Label40.configure(disabledforeground="#a3a3a3")
+            Label40.configure(foreground="#000000")
+            Label40.configure(highlightbackground="#d9d9d9")
+            Label40.configure(highlightcolor="black")
+            Label40.configure(pady="0")
+            Label40.configure(text='''Payment Register''')
 
             Frame2 = tk.Frame( )
             Frame2.place(relx=0.0, rely=0.119, relheight=0.887, relwidth=0.867)
@@ -708,6 +729,26 @@ def reciept():
         Button19.configure(pady="0")
         Button19.configure(text='''Reciept Register''')
         
+        
+        Button29 = tk.Button(Frame5)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
+        
+        
+        
+        
+        
 
         Frame2 = tk.Frame()
         Frame2.place(relx=0.0, rely=0.119, relheight=0.887, relwidth=0.867)
@@ -1227,6 +1268,22 @@ def sales():
         Button19.configure(highlightcolor="black")
         Button19.configure(pady="0")
         Button19.configure(text='''Sales Register''')
+        
+        Button29 = tk.Button(Frame5)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
+        
 
         Frame2 = tk.Frame()
         Frame2.place(relx=0.0, rely=0.119, relheight=0.887, relwidth=0.867)
@@ -1755,19 +1812,35 @@ def purchase():
         Frame5.configure(highlightbackground="#d9d9d9")
         Frame5.configure(highlightcolor="#0f8bce")
 
-        Button19 = tk.Button(Frame5)
-        Button19.place(relx=0.018, rely=0.286, height=14, width=107)
-        Button19.configure(activebackground="beige")
-        Button19.configure(activeforeground="#000000")
-        Button19.configure(background="#41b4f1")
-        Button19.configure(borderwidth="0")
-        Button19.configure(compound='left')
-        Button19.configure(disabledforeground="#a3a3a3")
-        Button19.configure(foreground="#000000")
-        Button19.configure(highlightbackground="#d9d9d9")
-        Button19.configure(highlightcolor="black")
-        Button19.configure(pady="0")
-        Button19.configure(text='''Purchase Register''')
+        Label20 = tk.Label(Frame5)
+        Label20.place(relx=0.018, rely=0.286, height=14, width=107)
+        Label20.configure(activebackground="beige")
+        Label20.configure(activeforeground="#000000")
+        Label20.configure(background="#41b4f1")
+        Label20.configure(borderwidth="0")
+        Label20.configure(compound='left')
+        Label20.configure(disabledforeground="#a3a3a3")
+        Label20.configure(foreground="#000000")
+        Label20.configure(highlightbackground="#d9d9d9")
+        Label20.configure(highlightcolor="black")
+        Label20.configure(pady="0")
+        Label20.configure(text='''Purchase Register''')
+        
+        Button29 = tk.Button(Frame5)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
+        
         
 
         Frame2 = tk.Frame()
@@ -2312,6 +2385,21 @@ def journal():
         Button19.configure(highlightcolor="black")
         Button19.configure(pady="0")
         Button19.configure(text='''Journal Register''')
+        
+        Button29 = tk.Button(Frame5)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
 
         Frame2 = tk.Frame()
         Frame2.place(relx=0.0, rely=0.119, relheight=0.887, relwidth=0.867)
@@ -2831,6 +2919,21 @@ def debit():
         Button19.configure(highlightcolor="black")
         Button19.configure(pady="0")
         Button19.configure(text='''Debit Note Register''')
+        
+        Button29 = tk.Button(Frame5)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
 
         Frame2 = tk.Frame()
         Frame2.place(relx=0.0, rely=0.119, relheight=0.887, relwidth=0.867)
@@ -3351,6 +3454,21 @@ def credit():
         Button19.configure(highlightcolor="black")
         Button19.configure(pady="0")
         Button19.configure(text='''Credit Note Register''')
+        
+        Button29 = tk.Button(Frame5)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
 
         Frame2 = tk.Frame()
         Frame2.place(relx=0.0, rely=0.119, relheight=0.887, relwidth=0.867)
@@ -3413,6 +3531,21 @@ def credit():
         Label2.configure(highlightbackground="#d9d9d9")
         Label2.configure(highlightcolor="black")
         Label2.configure(text='''Payment''')
+        
+        Button29 = tk.Button(Frame6)
+        Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        Button29.configure(activebackground="beige")
+        Button29.configure(activeforeground="#000000")
+        Button29.configure(background="#41b4f1")
+        Button29.configure(borderwidth="0")
+        Button29.configure(compound='left')
+        Button29.configure(disabledforeground="#a3a3a3")
+        Button29.configure(foreground="#000000")
+        Button29.configure(highlightbackground="#d9d9d9")
+        Button29.configure(highlightcolor="black")
+        Button29.configure(pady="0")
+        Button29.configure(text=''' X ''')
+        Button29.configure(command=back)
 
         Frame7 = tk.Frame(Frame3)
         Frame7.place(relx=0.775, rely=0.483, relheight=0.31, relwidth=0.225)
@@ -3690,10 +3823,10 @@ def credit():
         Label6.configure(highlightcolor="black")
         Label6.configure(text='''Grand Total''')
 
-def back():
-       sdbtn.destroy()
-       label_1.destroy()
-       Toplevel1()
+# def back():
+#        sdbtn.destroy()
+#        label_1.destroy()
+#        Toplevel1()
               
 class Toplevel1:
      
@@ -3722,19 +3855,15 @@ class Toplevel1:
         top.configure(highlightcolor="black")
 
         self.top = top
-        global sdbtn
-        sdbtn=Button(text="Back",font=("times new roman",12,"bold"),bg="white",fg="black",relief=RAISED,bd=1,command=back)
-        sdbtn.pack(fill=X,pady=10,padx=10)
-        label_1=Label(text="Stock group analysis",  borderwidth="0", width=40, background="#3385ff",foreground="#00254a",font="-family {Segoe UI} -size 10 -weight bold ")
-        label_1.place(relx=0, rely=0)
-        # self.Frame1 = tk.Frame(self.top)
-        # self.Frame1.place(relx=0.865, rely=0.089,relheight=0.915, relwidth=0.132)
-        # self.Frame1.configure(relief='groove')
-        # self.Frame1.configure(borderwidth="2")
-        # self.Frame1.configure(relief="groove")
-        # self.Frame1.configure(background="#66ddf2")
-        # self.Frame1.configure(highlightbackground="#d9d9d9")
-        # self.Frame1.configure(highlightcolor="black")
+        
+        self.Frame1 = tk.Frame(self.top)
+        self.Frame1.place(relx=0.865, rely=0.089,relheight=0.915, relwidth=0.132)
+        self.Frame1.configure(relief='groove')
+        self.Frame1.configure(borderwidth="2")
+        self.Frame1.configure(relief="groove")
+        self.Frame1.configure(background="#66ddf2")
+        self.Frame1.configure(highlightbackground="#d9d9d9")
+        self.Frame1.configure(highlightcolor="black")
 
         self.Button9 = tk.Button(self.Frame1)
         self.Button9.place(relx=0.0, rely=0.075, height=24, width=245)
@@ -3748,8 +3877,7 @@ class Toplevel1:
         self.Button9.configure(highlightbackground="#d9d9d9")
         self.Button9.configure(highlightcolor="black")
         self.Button9.configure(pady="0")
-        self.Button9.configure(text='''Back''')
-        self.Button9.configure(command=back)
+        # self.Button9.configure(command=back)
 
         self.but50 = tk.Button(self.top)
         self.but50.place(relx=0.099, rely=0.03, height=34, width=117)
@@ -4013,6 +4141,8 @@ class Toplevel1:
         self.Button11.configure(pady="0")
         self.Button11.configure(text='''Payment Register''')
         self.Button11.configure(command=payment)
+        
+        
 
 
         self.Button12 = tk.Button(self.Frame4)
@@ -4119,8 +4249,7 @@ class Toplevel1:
         self.Button20.configure(pady="0")
         self.Button20.configure(text='''Quit''')
 
-        self.menubar = tk.Menu(top, font="TkMenuFont",
-                               bg=_bgcolor, fg=_fgcolor)
+        self.menubar = tk.Menu(top, font="TkMenuFont",bg=_bgcolor, fg=_fgcolor)
         top.configure(menu=self.menubar)
 
         self.Button17 = tk.Button(self.top)
@@ -4131,8 +4260,7 @@ class Toplevel1:
         self.Button17.configure(borderwidth="0")
         self.Button17.configure(compound='left')
         self.Button17.configure(disabledforeground="#a3a3a3")
-        self.Button17.configure(
-            font="-family {Bahnschrift Light SemiCondensed} -size 24 -weight bold")
+        self.Button17.configure(font="-family {Bahnschrift Light SemiCondensed} -size 24 -weight bold")
         self.Button17.configure(foreground="#000000")
         self.Button17.configure(highlightbackground="#d9d9d9")
         self.Button17.configure(highlightcolor="black")
@@ -4140,8 +4268,7 @@ class Toplevel1:
         self.Button17.configure(text='''Tally Prime''')
 
         self.Frame5 = tk.Frame(self.top)
-        self.Frame5.place(relx=0.0, rely=0.089,
-                          relheight=0.035, relwidth=0.867)
+        self.Frame5.place(relx=0.0, rely=0.089,relheight=0.035, relwidth=0.867)
         self.Frame5.configure(relief='groove')
         self.Frame5.configure(borderwidth="2")
         self.Frame5.configure(relief="groove")
@@ -4149,20 +4276,34 @@ class Toplevel1:
         self.Frame5.configure(highlightbackground="#d9d9d9")
         self.Frame5.configure(highlightcolor="#0f8bce")
 
-        self.Button19 = tk.Button(self.Frame5)
-        self.Button19.place(relx=0.018, rely=0.286, height=14, width=107)
-        self.Button19.configure(activebackground="beige")
-        self.Button19.configure(activeforeground="#000000")
-        self.Button19.configure(background="#41b4f1")
-        self.Button19.configure(borderwidth="0")
-        self.Button19.configure(compound='left')
-        self.Button19.configure(disabledforeground="#a3a3a3")
-        self.Button19.configure(foreground="#000000")
-        self.Button19.configure(highlightbackground="#d9d9d9")
-        self.Button19.configure(highlightcolor="black")
-        self.Button19.configure(pady="0")
-        self.Button19.configure(text='''Gateway of tally''')
-
+        self.Label19 = tk.Label(self.Frame5)
+        self.Label19.place(relx=0.018, rely=0.286, height=14, width=107)
+        self.Label19.configure(activebackground="beige")
+        self.Label19.configure(activeforeground="#000000")
+        self.Label19.configure(background="#41b4f1")
+        self.Label19.configure(borderwidth="0")
+        self.Label19.configure(compound='left')
+        self.Label19.configure(disabledforeground="#a3a3a3")
+        self.Label19.configure(foreground="#000000")
+        self.Label19.configure(highlightbackground="#d9d9d9")
+        self.Label19.configure(highlightcolor="black")
+        self.Label19.configure(pady="0")
+        self.Label19.configure(text='''Gateway of tally''')
+        
+        self.Button29 = tk.Button(self.Frame5)
+        self.Button29.place(relx=0.97, rely=0.2686, height=14, width=25)
+        self.Button29.configure(activebackground="beige")
+        self.Button29.configure(activeforeground="#000000")
+        self.Button29.configure(background="#41b4f1")
+        self.Button29.configure(borderwidth="0")
+        self.Button29.configure(compound='left')
+        self.Button29.configure(disabledforeground="#a3a3a3")
+        self.Button29.configure(foreground="#000000")
+        self.Button29.configure(highlightbackground="#d9d9d9")
+        self.Button29.configure(highlightcolor="black")
+        self.Button29.configure(pady="0")
+        self.Button29.configure(text=''' X ''')
+        self.Button29.configure(command=back)
 
 def start_up():
     Tally_support.main()
