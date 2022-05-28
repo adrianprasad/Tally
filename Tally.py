@@ -4,13 +4,50 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter.constants import *
 import Tally_support
+import mysql.connector
 
 def back():
         #payment.destroy()
         Frame.destroy()
         Toplevel1()
         
+# def show():
+#         tree0=ttk.Treeview(selected_groups_frame, column=("c1", "c2","c3","c4","c5","c6","c7"), show='headings',height=22)
 
+#         tree0.column("#1", anchor=tk.W,width=610)
+
+#         tree0.column("#2", anchor=tk.W,width=110)
+
+#         tree0.column("#3",anchor=tk.W,width=110)
+
+#         tree0.column("#4", anchor=tk.W,width=120)
+
+#         tree0.column("#5", anchor=tk.W,width=110)
+
+#         tree0.column("#6", anchor=tk.W,width=110)
+
+#         tree0.column("#7", anchor=tk.W,width=132)
+
+
+#         tree0.place(x=1,y=139)
+
+#         tree0.bind("<Double-1>", movement_val)
+
+#         conn=mysql.connector.connect(host="localhost",user="root",password="",database="db")
+#         mycursor=conn.cursor()
+#         mycursor.execute("select id from app_stock_groups where stock_group_name='"+itm+"'")
+#         gid=mycursor.fetchall()[0][0]
+#         mycursor.execute("select* from app_stock where stock_group_id_id='"+str(gid)+"'")
+        
+#         stock_items=mycursor.fetchall()
+#         # print(stock_items)
+#         for i in stock_items:
+
+#                 tree0.insert("",'end',values=(i[1],i[3],i[2],i[4]))
+
+#         mycursor.execute("select sum(stock_price) from app_stock where stock_group_id_id='"+str(gid)+"'")
+#         total=mycursor.fetchone()[0]
+#         conn.close()
 
 def payment():
             Frame1 = tk.Frame( )
