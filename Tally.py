@@ -1,16 +1,393 @@
+from mimetypes import init
+from msilib import Table
 from tkinter import *
 import sys
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter.constants import *
-import Tally_support
 import mysql.connector
+from tkinter import Frame
+from db import Database 
+db=Database()
+root=None
+def initiate():
+        global root
+        root = tk.Tk()
+        root.protocol( 'WM_DELETE_WINDOW' , root.destroy)
+        # Creates a toplevel widget.
+        global _top1, _w1
+        _top1 = root
+        _w1 = Toplevel1(_top1)
+        root.mainloop() 
 
 def back():
-        #payment.destroy()
-        Frame.destroy()
-        Toplevel1()
+        global root
+        root.destroy()
+        initiate()
+
+def displayAll(tv):
+    tv.delete(*tv.get_children())
+    data=db.Display_Employees(Table)
+    print (data)
+    for row in data:
+        tv.insert("",END,values=row)
+
+ 
+def show():
+        #global tv      
+        Frame1 = tk.Frame()
+        Frame1.place(relx=0.865, rely=0.069, relheight=0.935, relwidth=0.132)
+        Frame1.configure(relief='groove')
+        Frame1.configure(borderwidth="2")
+        Frame1.configure(relief="groove")
+        Frame1.configure(background="#66ddf2")
+        Frame1.configure(highlightbackground="#d9d9d9")
+        Frame1.configure(highlightcolor="black")
+
+        Button9 = tk.Button(Frame1)
+        Button9.place(relx=0.0, rely=0.011, height=24, width=257)
+        Button9.configure(activebackground="beige")
+        Button9.configure(activeforeground="#000000")
+        Button9.configure(background="#ffffff")
+        Button9.configure(compound='left')
+        Button9.configure(disabledforeground="#a3a3a3")
+        Button9.configure(foreground="#000000")
+        Button9.configure(highlightbackground="#d9d9d9")
+        Button9.configure(highlightcolor="black")
+        Button9.configure(pady="0")
+        Button9.configure(text='''Back''')
+        Button9.configure(command=back)
+
+        but50 = tk.Button()
+        but50.place(relx=0.099, rely=0.03, height=34, width=117)
+        but50.configure(activebackground="#0000ff")
+        but50.configure(activeforeground="white")
+        but50.configure(activeforeground="#ffffff")
+        but50.configure(background="#ffffff")
+        but50.configure(compound='left')
+        but50.configure(disabledforeground="#a3a3a3")
+        but50.configure(foreground="#000000")
+        but50.configure(highlightbackground="#d9d9d9")
+        but50.configure(highlightcolor="black")
+        but50.configure(pady="0")
+        but50.configure(text='''K : Company''')
+
+        Button1 = tk.Button()
+        Button1.place(relx=0.177, rely=0.03, height=34, width=117)
+        Button1.configure(activebackground="beige")
+        Button1.configure(activeforeground="#000000")
+        Button1.configure(background="#ffffff")
+        Button1.configure(compound='left')
+        Button1.configure(disabledforeground="#a3a3a3")
+        Button1.configure(foreground="#000000")
+        Button1.configure(highlightbackground="#d9d9d9")
+        Button1.configure(highlightcolor="black")
+        Button1.configure(pady="0")
+        Button1.configure(text='''Button''')
+
+        Button2 = tk.Button()
+        Button2.place(relx=0.255, rely=0.03, height=34, width=117)
+        Button2.configure(activebackground="beige")
+        Button2.configure(activeforeground="#000000")
+        Button2.configure(background="#ffffff")
+        Button2.configure(borderwidth="1")
+        Button2.configure(compound='left')
+        Button2.configure(disabledforeground="#a3a3a3")
+        Button2.configure(foreground="#000000")
+        Button2.configure(highlightbackground="#d9d9d9")
+        Button2.configure(highlightcolor="black")
+        Button2.configure(pady="0")
+        Button2.configure(text='''Button''')
+
+        Button3 = tk.Button()
+        Button3.place(relx=0.401, rely=0.03, height=34, width=117)
+        Button3.configure(activebackground="beige")
+        Button3.configure(activeforeground="#000000")
+        Button3.configure(background="#ffffff")
+        Button3.configure(compound='left')
+        Button3.configure(disabledforeground="#a3a3a3")
+        Button3.configure(foreground="#000000")
+        Button3.configure(highlightbackground="#d9d9d9")
+        Button3.configure(highlightcolor="black")
+        Button3.configure(pady="0")
+        Button3.configure(text='''G : Goto''')
+
+        Button4 = tk.Button()
+        Button4.place(relx=0.719, rely=0.03, height=34, width=127)
+        Button4.configure(activebackground="beige")
+        Button4.configure(activeforeground="#000000")
+        Button4.configure(background="#ffffff")
+        Button4.configure(compound='left')
+        Button4.configure(disabledforeground="#a3a3a3")
+        Button4.configure(foreground="#000000")
+        Button4.configure(highlightbackground="#d9d9d9")
+        Button4.configure(highlightcolor="black")
+        Button4.configure(pady="0")
+        Button4.configure(text='''E : Email''')
+
+        Button5 = tk.Button()
+        Button5.place(relx=0.62, rely=0.03, height=34, width=117)
+        Button5.configure(activebackground="beige")
+        Button5.configure(activeforeground="#000000")
+        Button5.configure(background="#ffffff")
+        Button5.configure(compound='left')
+        Button5.configure(disabledforeground="#a3a3a3")
+        Button5.configure(foreground="#000000")
+        Button5.configure(highlightbackground="#d9d9d9")
+        Button5.configure(highlightcolor="black")
+        Button5.configure(pady="0")
+        Button5.configure(text='''M :Export''')
+
+        Button6 = tk.Button()
+        Button6.place(relx=0.813, rely=0.03, height=34, width=117)
+        Button6.configure(activebackground="beige")
+        Button6.configure(activeforeground="#000000")
+        Button6.configure(background="#ffffff")
+        Button6.configure(compound='left')
+        Button6.configure(disabledforeground="#a3a3a3")
+        Button6.configure(foreground="#000000")
+        Button6.configure(highlightbackground="#d9d9d9")
+        Button6.configure(highlightcolor="black")
+        Button6.configure(pady="0")
+        Button6.configure(text='''P : Print''')
+
+        Button7 = tk.Button()
+        Button7.place(relx=0.901, rely=0.03, height=34, width=117)
+        Button7.configure(activebackground="beige")
+        Button7.configure(activeforeground="#000000")
+        Button7.configure(background="#ffffff")
+        Button7.configure(compound='left')
+        Button7.configure(disabledforeground="#a3a3a3")
+        Button7.configure(foreground="#000000")
+        Button7.configure(highlightbackground="#d9d9d9")
+        Button7.configure(highlightcolor="black")
+        Button7.configure(pady="0")
+        Button7.configure(text='''F1 : Help''')
+
+        Button8 = tk.Button()
+        Button8.place(relx=0.536, rely=0.03, height=34, width=117)
+        Button8.configure(activebackground="beige")
+        Button8.configure(activeforeground="#000000")
+        Button8.configure(background="#ffffff")
+        Button8.configure(compound='left')
+        Button8.configure(disabledforeground="#a3a3a3")
+        Button8.configure(foreground="#000000")
+        Button8.configure(highlightbackground="#d9d9d9")
+        Button8.configure(highlightcolor="black")
+        Button8.configure(pady="0")
+        Button8.configure(text='''I : Import''')
+
+        Button17 = tk.Button()
+        Button17.place(relx=0.005, rely=0.02, height=44, width=157)
+        Button17.configure(activebackground="beige")
+        Button17.configure(activeforeground="#000000")
+        Button17.configure(background="#b7ecfb")
+        Button17.configure(borderwidth="0")
+        Button17.configure(compound='left')
+        Button17.configure(disabledforeground="#a3a3a3")
+        Button17.configure(font="-family {Bahnschrift Light SemiCondensed} -size 24 -weight bold")
+        Button17.configure(foreground="#000000")
+        Button17.configure(highlightbackground="#d9d9d9")
+        Button17.configure(highlightcolor="black")
+        Button17.configure(pady="0")
+        Button17.configure(text='''Tally Prime''')
+
+        Frame5 = tk.Frame()
+        Frame5.place(relx=0.0, rely=0.069, relheight=0.045, relwidth=0.867)
+        Frame5.configure(relief='groove')
+        Frame5.configure(borderwidth="2")
+        Frame5.configure(relief="groove")
+        Frame5.configure(background="#41b4f1")
+        Frame5.configure(highlightbackground="#d9d9d9")
+        Frame5.configure(highlightcolor="#0f8bce")
+
+        Button19 = tk.Button(Frame5)
+        Button19.place(relx=0.018, rely=0.222, height=24, width=147)
+        Button19.configure(activebackground="beige")
+        Button19.configure(activeforeground="#000000")
+        Button19.configure(background="#41b4f1")
+        Button19.configure(borderwidth="0")
+        Button19.configure(compound='left')
+        Button19.configure(disabledforeground="#a3a3a3")
+        Button19.configure(font="-family {Segoe UI} -size 12")
+        Button19.configure(foreground="#000000")
+        Button19.configure(highlightbackground="#d9d9d9")
+        Button19.configure(highlightcolor="black")
+        Button19.configure(pady="0")
+        Button19.configure(text='''Voucher Register''')
+
+        Frame2 = tk.Frame()
+        Frame2.place(relx=0.0, rely=0.099, relheight=0.907, relwidth=0.867)
+        Frame2.configure(relief='groove')
+        Frame2.configure(borderwidth="2")
+        Frame2.configure(relief="groove")
+        Frame2.configure(background="#ffffff")
+        Frame2.configure(highlightbackground="#d9d9d9")
+        Frame2.configure(highlightcolor="black")
+
+        Frame3 = tk.Frame(Frame2)
+        Frame3.place(relx=0.0, rely=0.0, relheight=0.061, relwidth=1.0)
+        Frame3.configure(relief='groove')
+        Frame3.configure(borderwidth="2")
+        Frame3.configure(relief="groove")
+        Frame3.configure(background="#ffffff")
+        Frame3.configure(highlightbackground="#d9d9d9")
+        Frame3.configure(highlightcolor="black")
+
+        Label1 = tk.Label(Frame3)
+        Label1.place(relx=0.018, rely=0.214, height=39, width=273)
+        Label1.configure(activebackground="#f9f9f9")
+        Label1.configure(anchor='w')
+        Label1.configure(background="#ffffff")
+        Label1.configure(compound='left')
+        Label1.configure(disabledforeground="#a3a3a3")
+        Label1.configure(font="-family {Segoe UI} -size 14")
+        Label1.configure(foreground="#000000")
+        Label1.configure(highlightbackground="#d9d9d9")
+        Label1.configure(highlightcolor="black")
+        Label1.configure(text='''List of All Payment Vouchers''')
+
+        # Frame4 = tk.Frame(Frame2)
+        # Frame4.place(relx=0.0, rely=0.055, relheight=0.072, relwidth=1.0)
+        # Frame4.configure(relief='groove')
+        # Frame4.configure(borderwidth="2")
+        # Frame4.configure(relief="groove")
+        # Frame4.configure(background="#ffffff")
+        # Frame4.configure(highlightbackground="#d9d9d9")
+        # Frame4.configure(highlightcolor="black")
+
+        tree_frame = Frame(Frame2, bg="#ecf0f1")
+        tree_frame.place(relx=0.0, rely=0.055, relheight=1.0, relwidth=1.0)
+        style = ttk.Style()
+        style.configure("mystyle.Treeview", font=('Calibri', 18),
+                        rowheight=40)  # Modify the font of the body
+        style.configure("mystyle.Treeview.Heading", font=(
+        'Calibri', 18))  # Modify the font of the headings
+        tv = ttk.Treeview(tree_frame, columns=(
+        1, 2, 3, 4, 5, 6), style="mystyle.Treeview")
+        tv.heading("1", text="Date")
+        tv.column("1", width=100,stretch=NO)
+        tv.heading("2", text="Particulars")
+        tv.column("2", width=900,stretch=NO)
+        tv.heading("3", text="Vch Type")
+        tv.column("3", width=100,stretch=NO)
+        tv.heading("4", text="Vch No")
+        tv.column("4", width=100,stretch=NO)
+        tv.heading("5", text="Debit Amount")
+        tv.column("5", width=250,stretch=NO)
+        tv.heading("6", text="Credit Amount")
+        tv.column("6", width=250,stretch=NO)
+        tv['show'] = 'headings'
+        #tv.bind("<ButtonRelease-1>", getData)
+        tv.pack(fill=X)
+        displayAll(tv)
         
+        
+        
+        
+        
+        
+        # Label2 = tk.Label(Frame4)
+        # Label2.place(relx=0.03, rely=0.152, height=40, width=63)
+        # Label2.configure(activebackground="#f9f9f9")
+        # Label2.configure(anchor='w')
+        # Label2.configure(background="#ffffff")
+        # Label2.configure(compound='left')
+        # Label2.configure(disabledforeground="#a3a3a3")
+        # Label2.configure(font="-family {Segoe UI} -size 13")
+        # Label2.configure(foreground="#000000")
+        # Label2.configure(highlightbackground="#d9d9d9")
+        # Label2.configure(highlightcolor="black")
+        # Label2.configure(text='''Date''')
+
+        # Label3 = tk.Label(Frame4)
+        # Label3.place(relx=0.09, rely=0.152, height=40, width=113)
+        # Label3.configure(activebackground="#f9f9f9")
+        # Label3.configure(anchor='w')
+        # Label3.configure(background="#ffffff")
+        # Label3.configure(compound='left')
+        # Label3.configure(disabledforeground="#a3a3a3")
+        # Label3.configure(font="-family {Segoe UI} -size 13")
+        # Label3.configure(foreground="#000000")
+        # Label3.configure(highlightbackground="#d9d9d9")
+        # Label3.configure(highlightcolor="black")
+        # Label3.configure(text='''Particulars''')
+
+        # Label4 = tk.Label(Frame4)
+        # Label4.place(relx=0.727, rely=0.152, height=40, width=84)
+        # Label4.configure(activebackground="#f9f9f9")
+        # Label4.configure(anchor='w')
+        # Label4.configure(background="#ffffff")
+        # Label4.configure(compound='left')
+        # Label4.configure(disabledforeground="#a3a3a3")
+        # Label4.configure(font="-family {Segoe UI} -size 13")
+        # Label4.configure(foreground="#000000")
+        # Label4.configure(highlightbackground="#d9d9d9")
+        # Label4.configure(highlightcolor="black")
+        # Label4.configure(text='''Vch type''')
+
+        # Label5 = tk.Label(Frame4)
+        # Label5.place(relx=0.817, rely=0.152, height=40, width=74)
+        # Label5.configure(activebackground="#f9f9f9")
+        # Label5.configure(anchor='w')
+        # Label5.configure(background="#ffffff")
+        # Label5.configure(compound='left')
+        # Label5.configure(disabledforeground="#a3a3a3")
+        # Label5.configure(font="-family {Segoe UI} -size 13")
+        # Label5.configure(foreground="#000000")
+        # Label5.configure(highlightbackground="#d9d9d9")
+        # Label5.configure(highlightcolor="black")
+        # Label5.configure(text='''Vch no''')
+
+        # Label6 = tk.Label(Frame4)
+        # Label6.place(relx=0.883, rely=0.152, height=42, width=83)
+        # Label6.configure(activebackground="#f9f9f9")
+        # Label6.configure(anchor='w')
+        # Label6.configure(background="#ffffff")
+        # Label6.configure(compound='left')
+        # Label6.configure(disabledforeground="#a3a3a3")
+        # Label6.configure(font="-family {Segoe UI} -size 13")
+        # Label6.configure(foreground="#000000")
+        # Label6.configure(highlightbackground="#d9d9d9")
+        # Label6.configure(highlightcolor="black")
+        # Label6.configure(text='''Debit Amount''')
+
+        # Label7 = tk.Label(Frame4)
+        # Label7.place(relx=0.943, rely=0.152, height=42, width=73)
+        # Label7.configure(activebackground="#f9f9f9")
+        # Label7.configure(anchor='w')
+        # Label7.configure(background="#ffffff")
+        # Label7.configure(compound='left')
+        # Label7.configure(disabledforeground="#a3a3a3")
+        # Label7.configure(font="-family {Segoe UI} -size 13")
+        # Label7.configure(foreground="#000000")
+        # Label7.configure(highlightbackground="#d9d9d9")
+        # Label7.configure(highlightcolor="black")
+        # Label7.configure(text='''Credit Amount''')
+
+        Frame6 = tk.Frame(Frame2)
+        Frame6.place(relx=0.0, rely=0.962, relheight=0.038, relwidth=1.0)
+        Frame6.configure(relief='groove')
+        Frame6.configure(borderwidth="2")
+        Frame6.configure(relief="groove")
+        Frame6.configure(background="#ffffff")
+        Frame6.configure(highlightbackground="#d9d9d9")
+        Frame6.configure(highlightcolor="black")
+
+        Label8 = tk.Label(Frame6)
+        Label8.place(relx=0.841, rely=0.286, height=21, width=74)
+        Label8.configure(activebackground="#f9f9f9")
+        Label8.configure(anchor='w')
+        Label8.configure(background="#ffffff")
+        Label8.configure(compound='left')
+        Label8.configure(disabledforeground="#a3a3a3")
+        Label8.configure(font="-family {Segoe UI} -size 12")
+        Label8.configure(foreground="#000000")
+        Label8.configure(highlightbackground="#d9d9d9")
+        Label8.configure(highlightcolor="black")
+        Label8.configure(text='''Total :''')
+
+  
 # def show():
 #         tree0=ttk.Treeview(selected_groups_frame, column=("c1", "c2","c3","c4","c5","c6","c7"), show='headings',height=22)
 
@@ -406,6 +783,7 @@ def payment():
             Button10.configure(highlightcolor="black")
             Button10.configure(pady="0")
             Button10.configure(text='''April''')
+            Button10.configure(command=show)
 
             Button11 = tk.Button( Frame11)
             Button11.place(relx=0.006, rely=0.043, height=24, width=147)
@@ -420,6 +798,7 @@ def payment():
             Button11.configure(highlightcolor="black")
             Button11.configure(pady="0")
             Button11.configure(text='''May''')
+            Button10.configure(command=show)
 
             Button12 = tk.Button( Frame11)
             Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -434,6 +813,7 @@ def payment():
             Button12.configure(highlightcolor="black")
             Button12.configure(pady="0")
             Button12.configure(text='''June''')
+            Button10.configure(command=show)
 
             Button13 = tk.Button( Frame11)
             Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -448,6 +828,7 @@ def payment():
             Button13.configure(highlightcolor="black")
             Button13.configure(pady="0")
             Button13.configure(text='''July''')
+            Button10.configure(command=show)
 
             Button14 = tk.Button( Frame11)
             Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -462,6 +843,7 @@ def payment():
             Button14.configure(highlightcolor="black")
             Button14.configure(pady="0")
             Button14.configure(text='''August''')
+            Button10.configure(command=show)
 
             Button15 = tk.Button( Frame11)
             Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -476,6 +858,7 @@ def payment():
             Button15.configure(highlightcolor="black")
             Button15.configure(pady="0")
             Button15.configure(text='''September''')
+            Button10.configure(command=show)
 
             Button16 = tk.Button( Frame11)
             Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -490,6 +873,7 @@ def payment():
             Button16.configure(highlightcolor="black")
             Button16.configure(pady="0")
             Button16.configure(text='''October''')
+            Button10.configure(command=show)
 
             Button18 = tk.Button( Frame11)
             Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -504,6 +888,7 @@ def payment():
             Button18.configure(highlightcolor="black")
             Button18.configure(pady="0")
             Button18.configure(text='''November''')
+            Button10.configure(command=show)
 
             Button20 = tk.Button( Frame11)
             Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -518,6 +903,7 @@ def payment():
             Button20.configure(highlightcolor="black")
             Button20.configure(pady="0")
             Button20.configure(text='''December''')
+            Button10.configure(command=show)
 
             Button21 = tk.Button( Frame11)
             Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -532,6 +918,7 @@ def payment():
             Button21.configure(highlightcolor="black")
             Button21.configure(pady="0")
             Button21.configure(text='''January''')
+            Button10.configure(command=show)
 
             Button22 = tk.Button( Frame11)
             Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -546,6 +933,7 @@ def payment():
             Button22.configure(highlightcolor="black")
             Button22.configure(pady="0")
             Button22.configure(text='''February''')
+            Button10.configure(command=show)
 
             Button23 = tk.Button( Frame11)
             Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -560,6 +948,7 @@ def payment():
             Button23.configure(highlightcolor="black")
             Button23.configure(pady="0")
             Button23.configure(text='''March''')
+            Button10.configure(command=show)
 
             Frame12 = tk.Frame( Frame11)
             Frame12.place(relx=0.0, rely=0.936, relheight=0.064, relwidth=1.0)
@@ -569,6 +958,7 @@ def payment():
             Frame12.configure(background="#ffffff")
             Frame12.configure(highlightbackground="#d9d9d9")
             Frame12.configure(highlightcolor="black")
+            
     
             Label6 = tk.Label( Frame12)
             Label6.place(relx=0.018, rely=0.222, height=21, width=133)
@@ -947,6 +1337,7 @@ def reciept():
         Button10.configure(highlightcolor="black")
         Button10.configure(pady="0")
         Button10.configure(text='''April''')
+        Button10.configure(command=show)
 
         Button11 = tk.Button(Frame11)
         Button11.place(relx=0.006, rely=0.043, height=24, width=147)
@@ -961,6 +1352,7 @@ def reciept():
         Button11.configure(highlightcolor="black")
         Button11.configure(pady="0")
         Button11.configure(text='''May''')
+        Button10.configure(command=show)
 
         Button12 = tk.Button(Frame11)
         Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -975,6 +1367,7 @@ def reciept():
         Button12.configure(highlightcolor="black")
         Button12.configure(pady="0")
         Button12.configure(text='''June''')
+        Button10.configure(command=show)
 
         Button13 = tk.Button(Frame11)
         Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -989,6 +1382,7 @@ def reciept():
         Button13.configure(highlightcolor="black")
         Button13.configure(pady="0")
         Button13.configure(text='''July''')
+        Button10.configure(command=show)
 
         Button14 = tk.Button(Frame11)
         Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -1003,6 +1397,7 @@ def reciept():
         Button14.configure(highlightcolor="black")
         Button14.configure(pady="0")
         Button14.configure(text='''August''')
+        Button10.configure(command=show)
 
         Button15 = tk.Button(Frame11)
         Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -1017,6 +1412,7 @@ def reciept():
         Button15.configure(highlightcolor="black")
         Button15.configure(pady="0")
         Button15.configure(text='''September''')
+        Button10.configure(command=show)
 
         Button16 = tk.Button(Frame11)
         Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -1031,6 +1427,7 @@ def reciept():
         Button16.configure(highlightcolor="black")
         Button16.configure(pady="0")
         Button16.configure(text='''October''')
+        Button10.configure(command=show)
 
         Button18 = tk.Button(Frame11)
         Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -1045,6 +1442,7 @@ def reciept():
         Button18.configure(highlightcolor="black")
         Button18.configure(pady="0")
         Button18.configure(text='''November''')
+        Button10.configure(command=show)
 
         Button20 = tk.Button(Frame11)
         Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -1059,6 +1457,7 @@ def reciept():
         Button20.configure(highlightcolor="black")
         Button20.configure(pady="0")
         Button20.configure(text='''December''')
+        Button10.configure(command=show)
 
         Button21 = tk.Button(Frame11)
         Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -1073,6 +1472,7 @@ def reciept():
         Button21.configure(highlightcolor="black")
         Button21.configure(pady="0")
         Button21.configure(text='''January''')
+        Button10.configure(command=show)
 
         Button22 = tk.Button(Frame11)
         Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -1087,6 +1487,7 @@ def reciept():
         Button22.configure(highlightcolor="black")
         Button22.configure(pady="0")
         Button22.configure(text='''February''')
+        Button10.configure(command=show)
 
         Button23 = tk.Button(Frame11)
         Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -1101,6 +1502,7 @@ def reciept():
         Button23.configure(highlightcolor="black")
         Button23.configure(pady="0")
         Button23.configure(text='''March''')
+        Button10.configure(command=show)
 
         Frame12 = tk.Frame(Frame11)
         Frame12.place(relx=0.0, rely=0.936, relheight=0.064, relwidth=1.0)
@@ -1504,6 +1906,7 @@ def sales():
         Button10.configure(highlightcolor="black")
         Button10.configure(pady="0")
         Button10.configure(text='''April''')
+        Button10.configure(command=show)
 
         Button11 = tk.Button(Frame11)
         Button11.place(relx=0.006, rely=0.042, height=24, width=147)
@@ -1518,6 +1921,7 @@ def sales():
         Button11.configure(highlightcolor="black")
         Button11.configure(pady="0")
         Button11.configure(text='''May''')
+        Button10.configure(command=show)
 
         Button12 = tk.Button(Frame11)
         Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -1532,6 +1936,7 @@ def sales():
         Button12.configure(highlightcolor="black")
         Button12.configure(pady="0")
         Button12.configure(text='''June''')
+        Button10.configure(command=show)
 
         Button13 = tk.Button(Frame11)
         Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -1546,6 +1951,7 @@ def sales():
         Button13.configure(highlightcolor="black")
         Button13.configure(pady="0")
         Button13.configure(text='''July''')
+        Button10.configure(command=show)
 
         Button14 = tk.Button(Frame11)
         Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -1560,6 +1966,7 @@ def sales():
         Button14.configure(highlightcolor="black")
         Button14.configure(pady="0")
         Button14.configure(text='''August''')
+        Button10.configure(command=show)
 
         Button15 = tk.Button(Frame11)
         Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -1574,6 +1981,7 @@ def sales():
         Button15.configure(highlightcolor="black")
         Button15.configure(pady="0")
         Button15.configure(text='''September''')
+        Button10.configure(command=show)
 
         Button16 = tk.Button(Frame11)
         Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -1588,6 +1996,7 @@ def sales():
         Button16.configure(highlightcolor="black")
         Button16.configure(pady="0")
         Button16.configure(text='''October''')
+        Button10.configure(command=show)
 
         Button18 = tk.Button(Frame11)
         Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -1602,6 +2011,7 @@ def sales():
         Button18.configure(highlightcolor="black")
         Button18.configure(pady="0")
         Button18.configure(text='''November''')
+        Button10.configure(command=show)
 
         Button20 = tk.Button(Frame11)
         Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -1616,6 +2026,7 @@ def sales():
         Button20.configure(highlightcolor="black")
         Button20.configure(pady="0")
         Button20.configure(text='''December''')
+        Button10.configure(command=show)
 
         Button21 = tk.Button(Frame11)
         Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -1630,6 +2041,7 @@ def sales():
         Button21.configure(highlightcolor="black")
         Button21.configure(pady="0")
         Button21.configure(text='''January''')
+        Button10.configure(command=show)
 
         Button22 = tk.Button(Frame11)
         Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -1644,6 +2056,7 @@ def sales():
         Button22.configure(highlightcolor="black")
         Button22.configure(pady="0")
         Button22.configure(text='''February''')
+        Button10.configure(command=show)
 
         Button23 = tk.Button(Frame11)
         Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -1658,6 +2071,7 @@ def sales():
         Button23.configure(highlightcolor="black")
         Button23.configure(pady="0")
         Button23.configure(text='''March''')
+        Button10.configure(command=show)
 
         Frame12 = tk.Frame(Frame11)
         Frame12.place(relx=0.0, rely=0.424, relheight=0.037, relwidth=1.0)
@@ -2063,6 +2477,7 @@ def purchase():
         Button10.configure(highlightcolor="black")
         Button10.configure(pady="0")
         Button10.configure(text='''April''')
+        Button10.configure(command=show)
 
         Button11 = tk.Button(Frame11)
         Button11.place(relx=0.006, rely=0.042, height=24, width=147)
@@ -2077,6 +2492,7 @@ def purchase():
         Button11.configure(highlightcolor="black")
         Button11.configure(pady="0")
         Button11.configure(text='''May''')
+        Button10.configure(command=show)
 
         Button12 = tk.Button(Frame11)
         Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -2091,6 +2507,8 @@ def purchase():
         Button12.configure(highlightcolor="black")
         Button12.configure(pady="0")
         Button12.configure(text='''June''')
+        Button10.configure(command=show)
+        
 
         Button13 = tk.Button(Frame11)
         Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -2105,6 +2523,8 @@ def purchase():
         Button13.configure(highlightcolor="black")
         Button13.configure(pady="0")
         Button13.configure(text='''July''')
+        Button10.configure(command=show)
+        
 
         Button14 = tk.Button(Frame11)
         Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -2119,6 +2539,7 @@ def purchase():
         Button14.configure(highlightcolor="black")
         Button14.configure(pady="0")
         Button14.configure(text='''August''')
+        Button10.configure(command=show)
 
         Button15 = tk.Button(Frame11)
         Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -2133,6 +2554,7 @@ def purchase():
         Button15.configure(highlightcolor="black")
         Button15.configure(pady="0")
         Button15.configure(text='''September''')
+        Button10.configure(command=show)
 
         Button16 = tk.Button(Frame11)
         Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -2147,6 +2569,7 @@ def purchase():
         Button16.configure(highlightcolor="black")
         Button16.configure(pady="0")
         Button16.configure(text='''October''')
+        Button10.configure(command=show)
 
         Button18 = tk.Button(Frame11)
         Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -2161,6 +2584,7 @@ def purchase():
         Button18.configure(highlightcolor="black")
         Button18.configure(pady="0")
         Button18.configure(text='''November''')
+        Button10.configure(command=show)
 
         Button20 = tk.Button(Frame11)
         Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -2175,6 +2599,7 @@ def purchase():
         Button20.configure(highlightcolor="black")
         Button20.configure(pady="0")
         Button20.configure(text='''December''')
+        
 
         Button21 = tk.Button(Frame11)
         Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -2189,6 +2614,8 @@ def purchase():
         Button21.configure(highlightcolor="black")
         Button21.configure(pady="0")
         Button21.configure(text='''January''')
+        Button10.configure(command=show)
+        
 
         Button22 = tk.Button(Frame11)
         Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -2203,6 +2630,7 @@ def purchase():
         Button22.configure(highlightcolor="black")
         Button22.configure(pady="0")
         Button22.configure(text='''February''')
+        Button10.configure(command=show)
 
         Button23 = tk.Button(Frame11)
         Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -2217,6 +2645,7 @@ def purchase():
         Button23.configure(highlightcolor="black")
         Button23.configure(pady="0")
         Button23.configure(text='''March''')
+        Button10.configure(command=show)
 
         Frame12 = tk.Frame(Frame11)
         Frame12.place(relx=0.0, rely=0.424, relheight=0.037, relwidth=1.0)
@@ -2598,6 +3027,7 @@ def journal():
         Button10.configure(highlightcolor="black")
         Button10.configure(pady="0")
         Button10.configure(text='''April''')
+        Button10.configure(command=show)
 
         Button11 = tk.Button(Frame11)
         Button11.place(relx=0.006, rely=0.043, height=24, width=147)
@@ -2612,6 +3042,7 @@ def journal():
         Button11.configure(highlightcolor="black")
         Button11.configure(pady="0")
         Button11.configure(text='''May''')
+        Button10.configure(command=show)
 
         Button12 = tk.Button(Frame11)
         Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -2626,6 +3057,7 @@ def journal():
         Button12.configure(highlightcolor="black")
         Button12.configure(pady="0")
         Button12.configure(text='''June''')
+        Button10.configure(command=show)
 
         Button13 = tk.Button(Frame11)
         Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -2640,6 +3072,7 @@ def journal():
         Button13.configure(highlightcolor="black")
         Button13.configure(pady="0")
         Button13.configure(text='''July''')
+        Button10.configure(command=show)
 
         Button14 = tk.Button(Frame11)
         Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -2654,6 +3087,7 @@ def journal():
         Button14.configure(highlightcolor="black")
         Button14.configure(pady="0")
         Button14.configure(text='''August''')
+        Button10.configure(command=show)
 
         Button15 = tk.Button(Frame11)
         Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -2668,6 +3102,7 @@ def journal():
         Button15.configure(highlightcolor="black")
         Button15.configure(pady="0")
         Button15.configure(text='''September''')
+        Button10.configure(command=show)
 
         Button16 = tk.Button(Frame11)
         Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -2682,6 +3117,7 @@ def journal():
         Button16.configure(highlightcolor="black")
         Button16.configure(pady="0")
         Button16.configure(text='''October''')
+        Button10.configure(command=show)
 
         Button18 = tk.Button(Frame11)
         Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -2696,6 +3132,7 @@ def journal():
         Button18.configure(highlightcolor="black")
         Button18.configure(pady="0")
         Button18.configure(text='''November''')
+        Button10.configure(command=show)
 
         Button20 = tk.Button(Frame11)
         Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -2710,6 +3147,7 @@ def journal():
         Button20.configure(highlightcolor="black")
         Button20.configure(pady="0")
         Button20.configure(text='''December''')
+        Button10.configure(command=show)
 
         Button21 = tk.Button(Frame11)
         Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -2724,6 +3162,7 @@ def journal():
         Button21.configure(highlightcolor="black")
         Button21.configure(pady="0")
         Button21.configure(text='''January''')
+        Button10.configure(command=show)
 
         Button22 = tk.Button(Frame11)
         Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -2738,6 +3177,7 @@ def journal():
         Button22.configure(highlightcolor="black")
         Button22.configure(pady="0")
         Button22.configure(text='''February''')
+        Button10.configure(command=show)
 
         Button23 = tk.Button(Frame11)
         Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -2752,6 +3192,7 @@ def journal():
         Button23.configure(highlightcolor="black")
         Button23.configure(pady="0")
         Button23.configure(text='''March''')
+        Button10.configure(command=show)
 
         Frame12 = tk.Frame(Frame11)
         Frame12.place(relx=0.0, rely=0.936, relheight=0.064, relwidth=1.0)
@@ -3132,6 +3573,7 @@ def debit():
         Button10.configure(highlightcolor="black")
         Button10.configure(pady="0")
         Button10.configure(text='''April''')
+        Button10.configure(command=show)
 
         Button11 = tk.Button(Frame11)
         Button11.place(relx=0.006, rely=0.043, height=24, width=147)
@@ -3146,6 +3588,7 @@ def debit():
         Button11.configure(highlightcolor="black")
         Button11.configure(pady="0")
         Button11.configure(text='''May''')
+        Button10.configure(command=show)
 
         Button12 = tk.Button(Frame11)
         Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -3160,6 +3603,7 @@ def debit():
         Button12.configure(highlightcolor="black")
         Button12.configure(pady="0")
         Button12.configure(text='''June''')
+        Button10.configure(command=show)
 
         Button13 = tk.Button(Frame11)
         Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -3174,6 +3618,7 @@ def debit():
         Button13.configure(highlightcolor="black")
         Button13.configure(pady="0")
         Button13.configure(text='''July''')
+        Button10.configure(command=show)
 
         Button14 = tk.Button(Frame11)
         Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -3188,6 +3633,7 @@ def debit():
         Button14.configure(highlightcolor="black")
         Button14.configure(pady="0")
         Button14.configure(text='''August''')
+        Button10.configure(command=show)
 
         Button15 = tk.Button(Frame11)
         Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -3202,6 +3648,7 @@ def debit():
         Button15.configure(highlightcolor="black")
         Button15.configure(pady="0")
         Button15.configure(text='''September''')
+        Button10.configure(command=show)
 
         Button16 = tk.Button(Frame11)
         Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -3216,6 +3663,7 @@ def debit():
         Button16.configure(highlightcolor="black")
         Button16.configure(pady="0")
         Button16.configure(text='''October''')
+        Button10.configure(command=show)
 
         Button18 = tk.Button(Frame11)
         Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -3230,6 +3678,7 @@ def debit():
         Button18.configure(highlightcolor="black")
         Button18.configure(pady="0")
         Button18.configure(text='''November''')
+        Button10.configure(command=show)
 
         Button20 = tk.Button(Frame11)
         Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -3244,6 +3693,7 @@ def debit():
         Button20.configure(highlightcolor="black")
         Button20.configure(pady="0")
         Button20.configure(text='''December''')
+        Button10.configure(command=show)
 
         Button21 = tk.Button(Frame11)
         Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -3258,6 +3708,7 @@ def debit():
         Button21.configure(highlightcolor="black")
         Button21.configure(pady="0")
         Button21.configure(text='''January''')
+        Button10.configure(command=show)
 
         Button22 = tk.Button(Frame11)
         Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -3272,6 +3723,7 @@ def debit():
         Button22.configure(highlightcolor="black")
         Button22.configure(pady="0")
         Button22.configure(text='''February''')
+        Button10.configure(command=show)
 
         Button23 = tk.Button(Frame11)
         Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -3286,6 +3738,7 @@ def debit():
         Button23.configure(highlightcolor="black")
         Button23.configure(pady="0")
         Button23.configure(text='''March''')
+        Button10.configure(command=show)
 
         Frame12 = tk.Frame(Frame11)
         Frame12.place(relx=0.0, rely=0.936, relheight=0.064, relwidth=1.0)
@@ -3682,6 +4135,7 @@ def credit():
         Button10.configure(highlightcolor="black")
         Button10.configure(pady="0")
         Button10.configure(text='''April''')
+        Button10.configure(command=show)
 
         Button11 = tk.Button(Frame11)
         Button11.place(relx=0.006, rely=0.043, height=24, width=147)
@@ -3696,6 +4150,7 @@ def credit():
         Button11.configure(highlightcolor="black")
         Button11.configure(pady="0")
         Button11.configure(text='''May''')
+        Button10.configure(command=show)
 
         Button12 = tk.Button(Frame11)
         Button12.place(relx=0.006, rely=0.072, height=24, width=147)
@@ -3710,6 +4165,7 @@ def credit():
         Button12.configure(highlightcolor="black")
         Button12.configure(pady="0")
         Button12.configure(text='''June''')
+        Button10.configure(command=show)
 
         Button13 = tk.Button(Frame11)
         Button13.place(relx=0.006, rely=0.099, height=24, width=147)
@@ -3724,6 +4180,7 @@ def credit():
         Button13.configure(highlightcolor="black")
         Button13.configure(pady="0")
         Button13.configure(text='''July''')
+        Button10.configure(command=show)
 
         Button14 = tk.Button(Frame11)
         Button14.place(relx=0.006, rely=0.128, height=24, width=147)
@@ -3738,6 +4195,7 @@ def credit():
         Button14.configure(highlightcolor="black")
         Button14.configure(pady="0")
         Button14.configure(text='''August''')
+        Button10.configure(command=show)
 
         Button15 = tk.Button(Frame11)
         Button15.place(relx=0.006, rely=0.156, height=24, width=147)
@@ -3752,6 +4210,7 @@ def credit():
         Button15.configure(highlightcolor="black")
         Button15.configure(pady="0")
         Button15.configure(text='''September''')
+        Button10.configure(command=show)
 
         Button16 = tk.Button(Frame11)
         Button16.place(relx=0.006, rely=0.184, height=24, width=137)
@@ -3766,6 +4225,7 @@ def credit():
         Button16.configure(highlightcolor="black")
         Button16.configure(pady="0")
         Button16.configure(text='''October''')
+        Button10.configure(command=show)
 
         Button18 = tk.Button(Frame11)
         Button18.place(relx=0.006, rely=0.213, height=24, width=147)
@@ -3780,6 +4240,7 @@ def credit():
         Button18.configure(highlightcolor="black")
         Button18.configure(pady="0")
         Button18.configure(text='''November''')
+        Button10.configure(command=show)
 
         Button20 = tk.Button(Frame11)
         Button20.place(relx=0.006, rely=0.241, height=24, width=147)
@@ -3794,6 +4255,7 @@ def credit():
         Button20.configure(highlightcolor="black")
         Button20.configure(pady="0")
         Button20.configure(text='''December''')
+        Button10.configure(command=show)
 
         Button21 = tk.Button(Frame11)
         Button21.place(relx=0.006, rely=0.27, height=24, width=137)
@@ -3808,6 +4270,7 @@ def credit():
         Button21.configure(highlightcolor="black")
         Button21.configure(pady="0")
         Button21.configure(text='''January''')
+        Button10.configure(command=show)
 
         Button22 = tk.Button(Frame11)
         Button22.place(relx=0.0, rely=0.298, height=24, width=157)
@@ -3822,6 +4285,7 @@ def credit():
         Button22.configure(highlightcolor="black")
         Button22.configure(pady="0")
         Button22.configure(text='''February''')
+        Button10.configure(command=show)
 
         Button23 = tk.Button(Frame11)
         Button23.place(relx=0.006, rely=0.326, height=24, width=127)
@@ -3836,6 +4300,7 @@ def credit():
         Button23.configure(highlightcolor="black")
         Button23.configure(pady="0")
         Button23.configure(text='''March''')
+        Button10.configure(command=show)
 
         Frame12 = tk.Frame(Frame11)
         Frame12.place(relx=0.0, rely=0.936, relheight=0.064, relwidth=1.0)
@@ -3860,10 +4325,6 @@ def credit():
         Label6.configure(highlightcolor="black")
         Label6.configure(text='''Grand Total''')
 
-# def back():
-#        sdbtn.destroy()
-#        label_1.destroy()
-#        Toplevel1()
               
 class Toplevel1:
      
@@ -3871,16 +4332,7 @@ class Toplevel1:
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
-        _fgcolor = '#000000'  # X11 color: 'black'
-        _compcolor = 'gray40'  # X11 color: #666666
-        _ana1color = '#c3c3c3'  # Closest X11 color: 'gray76'
-        _ana2color = 'beige'  # X11 color: #f5f5dc
-        _tabfg1 = 'black'
-        _tabfg2 = 'black'
-        _tabbg1 = 'grey75'
-        _tabbg2 = 'grey89'
-        _bgmode = 'light'
-     
+        _fgcolor = '#000000'  # X11 color: 'black'     
 
         top.geometry("1920x1009+-8+-8")
         top.minsize(120, 1)
@@ -4342,9 +4794,12 @@ class Toplevel1:
         self.Button29.configure(text=''' X ''')
         self.Button29.configure(command=back)
 
-def start_up():
-    Tally_support.main()
+# def start_up():
+#     Tally_support.main()
 
 
-if __name__ == '__main__':
-    Tally_support.main()
+# if __name__ == '__main__':
+#     Tally_support.main()
+    
+
+initiate()
