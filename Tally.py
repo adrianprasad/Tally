@@ -27,7 +27,7 @@ def back():
 
 def displayAll(tv):
     tv.delete(*tv.get_children())
-    data=db.Display('sales')
+    data=db.Display(Table)
     print (data)
     for row in data:
         tv.insert("",END,values=row)
